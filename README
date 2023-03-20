@@ -1,4 +1,10 @@
-super simple command tool to render jinja2 tempaltes in the same directory
+super simple command tool to render jinja2 templates in the same directory
+
+you need to have jinja2 installed, so:
+```
+pip install Jinja2
+``
+or whatever you do to install python modules
 
 usage: jinjathis [-h] [-p PATH]
 
