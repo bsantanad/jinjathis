@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+'''
+super simple command tool to render jinja tempaltes in the same directory
+
+usage: jinjathis [-h] [-p PATH]
+
+options:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  path for the file you want to render
+
+'''
+import argparse
+import os
+import logging
+
+import jinja2
+
+def main():
+    arg_parser = argparse.ArgumentParser()
+
+    arg_parser.add_argument(
+        '-p', '--path',  help = 'path for the file you want to render',
+        default = './'
+    )
+
+    args = arg_parser.parse_args()
+
+    if args.path == './':
+        logging.error(
+                'you need to pass a path, with -p, smth like -p smth.html'
+        )
+        return
+
+    env = jinja2.Environment(
+        loader = jinja2.FileSystemLoader(searchpath = "./"),
+    )
+
+    template = env.get_template(args.path)
+    html = template.render({})
+
+    print(html)
+
+if __name__ == '__main__':
+    main()

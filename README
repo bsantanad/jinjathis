@@ -1,0 +1,7 @@
+super simple command tool to render jinja2 tempaltes in the same directory
+
+usage: jinjathis [-h] [-p PATH]
+
+options:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  path for the file you want to render
